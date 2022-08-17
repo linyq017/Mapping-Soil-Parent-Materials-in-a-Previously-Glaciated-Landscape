@@ -74,3 +74,7 @@ for i in learning_rate_list:
                 #print("testing accuracy:", test_accuracy)
                 #print(classification_report(y_test,y_test_pred))
 print(res_dict)
+#convert result from dictionary to dataframe and sort by values
+res_df = pd.DataFrame.from_dict(res_dict)
+res_df.sort_values(by=['testing_accuracy'])
+res_df
