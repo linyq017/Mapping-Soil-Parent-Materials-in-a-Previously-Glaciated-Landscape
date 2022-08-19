@@ -30,14 +30,14 @@ scaler = MinMaxScaler()
 x_train_NN = scaler.fit_transform(x_train)
 x_test_NN = scaler.fit_transform(x_test)
 
-
 # define the grid search parameters
 parameter_space = {
-    'hidden_layer_sizes': [(50,50,50), (50,100,50), (100,)],
+    'hidden_layer_sizes': [(100,50,20,5), (200, 50, 10), (100, 50, 10)],
     'activation': ['tanh', 'relu'],
-    'solver': ['sgd', 'adam'],
-    'alpha': [0.0001, 0.05],
-    'learning_rate': ['constant','adaptive'],
+    'solver': ['adam'],
+    'alpha': [0.1, 0.2],
+    'learning_rate': ['adaptive'],
+    'max_iter': [500,1000,1500 ]
 }
 
 #define nn model
