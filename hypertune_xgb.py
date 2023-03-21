@@ -21,7 +21,7 @@ var_columns_sfsi = [c for c in df_train_sfsi.columns if c not in ['SampleType', 
        'SampleType','ParentMate','Texture', 'ParentMa_1', 'Texture_M6','CultSoilTy', 'Disturbed', 'B_lowerLim', 'H_sampleTa', 'M_SampleTa',
        'Landuse', 'PitDist', 'PitDirecti', 'SoilMoistu', 'Humificati','ParentMa_2','NMD',
        'Humifica_1', 'Ditch', 'East_coord', 'North_coor','geometry','SFSI_field','ParentMate_TX', 'Texture_TX']]
-
+df_train_sfsi = df_train_sfsi[var_columns_sfsi]
 #define kfold
 kfold = 5
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
