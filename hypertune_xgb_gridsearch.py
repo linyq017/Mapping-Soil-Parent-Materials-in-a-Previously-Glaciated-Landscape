@@ -1,5 +1,4 @@
 
-
 import numpy as np
 import pandas as pd
 import os
@@ -34,13 +33,13 @@ x = df_train_sfsi.loc[:,[c for c in df_train_sfsi.columns if c not in ['GENERAL_
 y = df_train_sfsi.loc[:,'GENERAL_TX']
 
 # A parameter grid for XGBoost
-learning_rate_list = [0.05, 0.1, 0.2]
-max_depth_list = [6,8,10]
+learning_rate_list = [0.02, 0.05, 0.1, 0.2, 0.3]
+max_depth_list = [6,8]
 num_boost_round_list = [100]
 colsample_bytree_list = [0.7,0.5]
-min_child_weight_list =[1,5]
-alpha_list = [0, 0.01,0.1]
-lambda_list = [1, 10]
+min_child_weight_list =[1,5, 10]
+alpha_list = [0]
+lambda_list = [1, 10, 50]
 
 
 #display cross validation result with corresponding hyperparameters
@@ -73,14 +72,16 @@ for i in learning_rate_list:
                                 'num_class': 6, 'verbosity':1,  "max_cat_to_onehot":6, 'eval_metric':["mlogloss","merror"]}
             #Cross Validation
                             #define x y for train and validation fold from stratified kfold
+                            ii = 0 #CV
                             for train_idx, val_idx in skf.split(x, y):
+                                ii +=1 #ii = i+1 
                                 X_train, y_train = x.iloc[train_idx], y.iloc[train_idx]
                                 X_val, y_val = x.iloc[val_idx], y.iloc[val_idx]
                                 le = LabelEncoder()
                                 y_train = le.fit_transform(y_train)
                                 y_val = le.fit_transform(y_val)
                                 #print each CV hyperparameters when code is running                          
-                                print("num_boost_round: {:s};  max_depth: {:s};  learning_rate: {:s}; colsample_bytree: {:s}; min_child_weight: {:s}; alpha: {:s}; lambda: {:s}".format(str(l),str(j),str(i),str(h),str(m),str(n),str(o)))
+                                print("CV: {:s}; num_boost_round: {:s};  max_depth: {:s};  learning_rate: {:s}; colsample_bytree: {:s}; min_child_weight: {:s}; alpha: {:s}; lambda: {:s}".format(str(ii),str(l),str(j),str(i),str(h),str(m),str(n),str(o)))
                 
                                 #convert data to dmatrix data structure to utilize xgboost fast processing
                                 dtrain = xgb.DMatrix(X_train, label=y_train)
@@ -91,7 +92,7 @@ for i in learning_rate_list:
                                 # prediction result on train and val set in order to compute other metrics 
                                 y_train_pred = model.predict(dtrain)
                                 y_val_pred = model.predict(dval)
-                                #append results to results dic
+                                #append results to results d
                                 res_dict["learning rate"].append(i)
                                 res_dict["max depth"].append(j)
                                 res_dict["num_boost_round"].append(l)
@@ -106,7 +107,7 @@ for i in learning_rate_list:
                                 test_accuracy = accuracy_score(y_val, y_val_pred)
                                 res_dict["testing_accuracy"].append(test_accuracy)
                                 #print("testing accuracy:", test_accuracy)
-                                #print(classification_report(y_test,y_test_pred))
+                                #                                     #print(classification_report(y_test,y_test_pred))
                                 cohen_kappa_score_test = cohen_kappa_score(y_val, y_val_pred)
                                 res_dict['cohen_kappa_score_test'].append(cohen_kappa_score_test)
                                 f1_score_test = f1_score(y_val, y_val_pred, average='macro')
