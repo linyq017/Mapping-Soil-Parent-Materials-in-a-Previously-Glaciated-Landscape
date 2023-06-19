@@ -16,6 +16,6 @@ gdalbuildvrt -input_file_list /workspace/data/SGU/orginal_fran_wl/CompositeBands
 # use gdallocationinfo to extract the bands i need and transpose the extraction into correct rows and columns
 gdallocationinfo -geoloc -b 1  -b 2 -b 3 -b 4 -b 5 -b 6 -b 7 -b 8 -b 9 -b 10 -b 11 -b 12 -b 13 -b 14 -b 17  -valonly /workspace/data/SGU/orginal_fran_wl/CompositeBands/output.vrt < /workspace/data/SGU/SFSI/SFSI/x_y_merged.txt  |   awk -v BB=14 'ORS=NR%BB?FS:RS' >   /workspace/data/SGU/orginal_fran_wl/CompositeBands_txt/extract_allb_t.txt
 # append headers to values extracted from composite band tiles
-allb_header="DEM EAS1ha EAS10ha DI2m CVA SDFS DFME Rugged SoilMap HKDepth SoilDepth LandAge MSRM MED"
+allb_header="DEM EAS1ha EAS10ha DI2m CVA SDFS DFME Rugged NMD SoilMap HKDepth SoilDepth LandAge MSRM MED"
 echo $allb_header > /workspace/data/SGU/orginal_fran_wl/CompositeBands_txt/extract_allb_header.txt
 cat  /workspace/data/SGU/orginal_fran_wl/CompositeBands_txt/extract_allb_T.txt     >> /workspace/data/SGU/orginal_fran_wl/CompositeBands_txt/extract_allb_header.txt
