@@ -26,4 +26,12 @@ To calculate terrain indices from LiDAR dem, run the following scripts:
 
 To train the XGBoost model using the provided dataset, run the following scripts:
 
+## Results and Discussion
 
+In this study we trained two XGBoost models. The first model was trained only with LiDAR indices, the second model was trained with additional map data. The XGBoost model trained with LiDAR indices alongside map data achieved a Matthews Correlation Coefficient (MCC) of 0.56, indicating moderate predictive power. While the model successfully identified peat and till deposits, sorted sediments posed a greater challenge. Spatial validation revealed that model performance varied significantly across the 28 physiographic regions, highlighting the need for region-specific tuning or additional features.
+
+For a detailed discussion of these results, refer to the [manuscript](link-to-manuscript).
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
