@@ -22,11 +22,14 @@ The dataset used in this study includes 29,588 soil observations for training an
 
 ## Usage
 
-To calculate terrain indices from LiDAR dem, run the following scripts in the terminal:
+To calculate terrain indices from LiDAR dem, run example scripts 2.1 - 2.5 in the terminal:
 ```bash
 python script_name.py /path/to/input_directory /path/to/output_directory
 ```
-
+For example, to run script 2.3, run:
+```bash
+python /workspace/code/wbtools/relative_topographic_position.py /workspace/data/wbt/folder1/ /workspace/data/wbt/folder1_ruggedness/ 11
+```
 To train the XGBoost model using the provided dataset, run the following scripts:
 
 ## Results and Discussion
