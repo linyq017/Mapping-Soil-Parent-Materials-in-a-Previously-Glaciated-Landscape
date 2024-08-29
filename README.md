@@ -24,7 +24,7 @@ The dataset used in this study includes 29,588 soil observations for training an
 
 To calculate terrain indices from LiDAR dem, run example scripts 2.1 - 2.5 in the terminal:
 ```bash
-python script_name.py /path/to/input_directory /path/to/output_directory
+python script_name.py /path/to/input_directory /path/to/output_directory extra_argument
 ```
 For example, to run script 2.3, run:
 ```bash
