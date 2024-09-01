@@ -19,8 +19,14 @@ We recommend using a docker container to reproduce the results or run the code i
 The dataset used in this study includes 29,588 soil observations for training and 3,500 for evaluation. Due to sensitivity considerations of the Swedish Forest Soil Inventory plots, the raw data cannot be directly shared. Users are encouraged to use their own dataset.
 
 ## Usage
+Usage
+The Python scripts in the scripts/ directory are organized to perform various geospatial data processing tasks. Below is a brief overview of their functionality and how to execute them.
 
-To calculate terrain indices from LiDAR dem, run example scripts 2.1 - 2.5 in the terminal:
+1. Resampling DEM to Different Resolutions
+To resample Digital Elevation Models (DEMs) to different spatial resolutions, use the appropriate script in the scripts/ directory. This process adjusts the resolution of the DEM to meet specific analysis requirements.
+
+2. Calculating Terrain Indices from LiDAR DEM
+To compute terrain indices from LiDAR DEMs, you can use the example scripts provided. These scripts are numbered 2.1 through 2.5 and should be run in the terminal with the following syntax:
 ```bash
 python script_name.py /path/to/input_directory /path/to/output_directory extra_argument
 ```
@@ -28,7 +34,23 @@ For example, to run script 2.3, run:
 ```bash
 python /workspace/code/wbtools/relative_topographic_position.py /workspace/data/wbt/folder1/ /workspace/data/wbt/folder1_ruggedness/ 11
 ```
-To train the XGBoost model using the provided dataset, run the following scripts:
+
+3. Extracting Raster Values to Points
+Depending on your data format, you may need to extract raster values to point locations. This process varies based on the data types and formats you are working with:
+
+Single Raster: Extract values from a single raster file.
+Raster Tiles: Extract values from multiple raster tiles.
+Raster Stacks: Extract values from a stack of rasters.
+Point Shape File: Extract values based on point locations defined in a shapefile.
+Point Shape Files Clipped to Raster Bounds: Extract values for points within the bounds of the raster.
+
+4. XGBoost Model Tuning, Training, and Map Prediction
+The final step involves tuning, training, and making predictions with the XGBoost model. This process includes:
+
+Model Tuning: Adjust hyperparameters to optimize model performance.
+Training: Fit the model to your training dataset.
+Map Prediction: Use the trained model to make predictions on new geospatial data.
+SHAP value calculation: Calculate SHAP values for feature importance.
 
 ## Results and Discussion
 
