@@ -12,7 +12,7 @@ from optuna import Trial, visualization
 import plotly
 from optuna.samplers import TPESampler
 # import data
-df_train_sfsi = pd.read_csv('/workspace/data/SGU/SFSI/SFSI_cleaned_nodata.csv',sep = ',', decimal = '.', index_col=False)
+df_train_sfsi = pd.read_csv('/workspace/data/SGU/SFSI/SFSI_cleaned.csv',sep = ',', decimal = '.', index_col=False)
 df_train_sfsi
 #clean up dataset 
 var_columns_sfsi = [c for c in df_train_sfsi.columns if c not in ['Unnamed: 0','OBJECTID', 'MarkInvent', 'Taxar', 'TraktNr', 'PalslagNr', 'DelytaNr',
@@ -104,7 +104,7 @@ best_score_mcc = study.best_value
 
 # Save the results to a dataframe and a CSV file
 df = study.trials_dataframe()
-df.to_csv('/workspace/data/SGU/SFSI/optuna_sfsi_results_nostone.csv', index=False)
+df.to_csv('/workspace/data/SGU/SFSI/optuna_sfsi_results.csv', index=False)
 
 #visualization
 optuna.visualization.plot_optimization_history(study)
