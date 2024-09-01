@@ -38,11 +38,11 @@ python /workspace/code/wbtools/relative_topographic_position.py /workspace/data/
 3. Extracting Raster Values to Points
 Depending on your data format, you may need to extract raster values to point locations. This process varies based on the data types and formats you are working with:
 
-Single Raster: Extract values from a single raster file.
-Raster Tiles: Extract values from multiple raster tiles.
-Raster Stacks: Extract values from a stack of rasters.
-Point Shape File: Extract values based on point locations defined in a shapefile.
-Point Shape Files Clipped to Raster Bounds: Extract values for points within the bounds of the raster.
+- Single Raster: Extract values from a single raster file.
+- Raster Tiles: Extract values from multiple raster tiles.
+- Raster Stacks: Extract values from a stack of rasters.
+- Point Shape File: Extract values based on point locations defined in a shapefile.
+- Point Shape Files Clipped to Raster Bounds: Extract values for points within the bounds of the raster.
 
 4. XGBoost Model Tuning, Training, and Map Prediction
 The final step involves tuning, training, and making predictions with the XGBoost model. This process includes:
