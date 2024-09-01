@@ -6,19 +6,17 @@ Key features used for training include terrain and hydrological indices derived 
 
 ## Repository Structure
 
-- `data/`: Contains a subset of anonymized data used in the study.
-- `scripts/`: Python scripts for selected Lidar indices calculation, data processing, model training, and evaluation.
+- `scripts/`: Python scripts for selected Lidar indices calculation, data processing, model training, and evaluation. 
 - `dockerfile/`: Outputs of the models, including predictions and performance metrics.
-- `figures/`: Visualizations and plots generated during the study.
 - `README.md`: This file, providing an overview of the project.
 
 ## Installation and Setup
 
-To reproduce the results or run the code in this repository, we recommend using a docker container.
+We recommend using a docker container to reproduce the results or run the code in this repository.
 
 ## Data Availability
 
-The dataset used in this study includes 29,588 soil observations for training and 3,500 for evaluation. Due to sensitivity considerations, the raw data cannot be directly shared. However, a subset of anonymized data is available for testing purposes. 
+The dataset used in this study includes 29,588 soil observations for training and 3,500 for evaluation. Due to sensitivity considerations of the Swedish Forest Soil Inventory plots, the raw data cannot be directly shared. Users are encouraged to use their own dataset.
 
 ## Usage
 
