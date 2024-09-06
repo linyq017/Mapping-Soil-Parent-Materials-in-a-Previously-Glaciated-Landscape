@@ -11,8 +11,7 @@ saves the results into individual CSV files. Finally, it concatenates all these 
 a single CSV file.
 
 Usage:
-- This script is useful for extracting raster data for specific point locations (e.g., for 
-  environmental or geological studies) and then combining these extracted values into one comprehensive dataset.
+- This script is useful for extracting raster data for specific point locations and then combining these extracted values into one comprehensive dataset.
 """
 
 # Navigate to the folder containing the point shapefiles that have been clipped to raster extents
