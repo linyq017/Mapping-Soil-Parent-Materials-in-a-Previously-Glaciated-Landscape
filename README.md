@@ -57,7 +57,7 @@ SHAP value calculation: Calculate SHAP values for feature importance.
 
 In this study we trained two XGBoost models. The first model was trained only with LiDAR indices, the second model was trained with additional map data. The XGBoost model trained with LiDAR indices alongside map data achieved a Matthews Correlation Coefficient (MCC) of 0.56, indicating moderate predictive power. While the model successfully identified peat and till deposits, sorted sediments posed a greater challenge. Spatial validation revealed that model performance varied significantly across the 28 physiographic regions, highlighting the need for region-specific tuning or additional features.
 
-For a detailed discussion of these results, refer to the [manuscript](link-to-manuscript).
+For a detailed discussion of these results, refer to the [manuscript]([link-to-manuscript](https://www.sciencedirect.com/science/article/pii/S2352009424001524?via%3Dihub)).
 
 ## License
 
